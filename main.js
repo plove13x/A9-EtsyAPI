@@ -3729,16 +3729,19 @@ var etsyResults = {
 var data = etsyResults.results;
 
 var listings = data.map(function(item) {
-    var smallerObj = {};                                /*COULD I HAVE JUST MADE THESE PROPERTIES OF "listings" (and made it an object)?*/
+    var smallerObj = {};                                
     smallerObj.image = item.Images[0].url_170x135;
     smallerObj.title = item.title;
+
+    //ADD .url
+
     smallerObj.shop_name = item.Shop.shop_name;
     smallerObj.price = item.price;
     return smallerObj;
 });
 // console.log(listings);
 
-listings.forEach(function(inputHere) {
+listings.forEach(function(inputHere) {                  //ADD URL links!
     var $li = $('<li class="itemSquare">');
     $('ul').append($li)/*.addClass("itemSquare");*/
     $li.append('<div class="image">' + '<img src=\"' + inputHere.image + '\" /></div>');
